@@ -1,0 +1,20 @@
+include "biblio-standoc.rnc" {
+
+  DocumentType =
+    "directive" | "guide" | "specification" | "standard" | "report" | "administrative" | "amendment" | "technical corrigendum" | "advisory"
+
+    BibDataExtensionType =
+    attribute schema-version { text }?,
+              doctype?, docsubtype?, editorialgroup, ics*
+
+    editorialgroup = element editorialgroup {
+                  technical-committee+
+    }
+
+  technical-committee = element committee {
+    attribute type { text }?,
+    text
+  }
+
+}
+
